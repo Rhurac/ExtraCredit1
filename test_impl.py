@@ -58,10 +58,74 @@ class TestTicTacToeCheck(object):
         except:
             assert False
 
-    def test_returns_winning_char_if_board_is_legal(self):
-        """ Asserts that the winning character is returned if the given board is a legal board """
+    def test_passes_if_board_is_legal(self):
+        """ Asserts that no error is raised if the given board is a legal board """
         try:
             impl.tic_tac_toe_check(["", "", "", "", "", "", "", "", ""])
+            assert True
+        except:
+            assert False
+
+    def test_vertical_column_one_winner(self):
+        """ Asserts that the winning character is returned if a winner in the first vertical column is found """
+        try:
+            impl.tic_tac_toe_check(["x", "o", "", "x", "o", "", "x", "", "o"])
+            assert True
+        except:
+            assert False
+
+    def test_vertical_column_two_winner(self):
+        """ Asserts that the winning character is returned if a winner in the second vertical column is found """
+        try:
+            impl.tic_tac_toe_check(["o", "x", "", "o", "x", "", "", "x", "o"])
+            assert True
+        except:
+            assert False
+
+    def test_vertical_column_three_winner(self):
+        """ Asserts that the winning character is returned if a winner in the third vertical column is found """
+        try:
+            impl.tic_tac_toe_check(["o", "", "x", "o", "", "x", "", "o", "x"])
+            assert True
+        except:
+            assert False
+
+    def test_horizontal_row_one_winner(self):
+        """ Asserts that the winning character is returned if a winner in the first row is found """
+        try:
+            impl.tic_tac_toe_check(["x", "x", "x", "o", "o", "", "", "", "o"])
+            assert True
+        except:
+            assert False
+
+    def test_horizontal_row_two_winner(self):
+        """ Asserts that the winning character is returned if a winner in the second row is found """
+        try:
+            impl.tic_tac_toe_check(["o", "o", "", "x", "x", "x", "", "", "o"])
+            assert True
+        except:
+            assert False
+
+    def test_horizontal_row_three_winner(self):
+        """ Asserts that the winning character is returned if a winner in the third row is found """
+        try:
+            impl.tic_tac_toe_check(["o", "", "o", "", "o", "", "x", "x", "x"])
+            assert True
+        except:
+            assert False
+
+    def test_top_left_to_bottom_right_diagonal_winner(self):
+        """ Asserts that the winning character is returned if a winner in the top to bottom diagonal """
+        try:
+            impl.tic_tac_toe_check(["x", "o", "o", "o", "x", "", "x", "", ""])
+            assert True
+        except:
+            assert False
+
+    def test_bottom_left_to_top_right_diagonal_winner(self):
+        """ Asserts that the winning character is returned if a winner in the bottom to top diagonal """
+        try:
+            impl.tic_tac_toe_check(["o", "o", "x", "o", "x", "", "x", "", ""])
             assert True
         except:
             assert False
